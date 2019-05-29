@@ -5,12 +5,14 @@ Change Log
 Installation
 ------------
 
-The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
-
-Either run
+Contoh
 
 ```
-php composer.phar require --prefer-dist jobsrey/yii2-changelog "*"
+'components' => [
+        ...
+        'changelog' => [
+            'class' => 'app\components\ChangeLogAsset',
+        ],
 ```
 
 or add
