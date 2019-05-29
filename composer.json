@@ -4,6 +4,7 @@
     "type": "yii2-extension",
     "keywords": ["changelog"],
     "license": "MIT",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "jobsrey",
