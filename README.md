@@ -5,13 +5,13 @@ Change Log
 Installation
 ------------
 
-Contoh
+Usage
 
 ```
 'components' => [
         ...
         'changelog' => [
-            'class' => 'app\components\ChangeLogAsset',
+            'class' => 'jobsrey\changelog\ChangeLog',
         ],
 ```
 
