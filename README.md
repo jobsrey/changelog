@@ -76,3 +76,10 @@ class Users extends \yii\db\ActiveRecord
 
 
 ```
+
+keterangan status
+
+1. insert
+2. update
+3. delete
+4. only info
