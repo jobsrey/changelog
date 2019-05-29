@@ -1,0 +1,21 @@
+{
+    "name": "jobsrey/yii2-changelog",
+    "description": "Change Log ",
+    "type": "yii2-extension",
+    "keywords": [""],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jobsrey",
+            "email": "jobsrey@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "jobsrey\\changelog\\": ""
+        }
+    }
+}
