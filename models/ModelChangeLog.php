@@ -9,6 +9,7 @@ use yii\behaviors\TimestampBehavior;
 class ModelChangeLog extends \yii\db\ActiveRecord
 {
 
+    public $set_db = 'db';
 
     //STATUS
     // 1 => create
@@ -19,9 +20,12 @@ class ModelChangeLog extends \yii\db\ActiveRecord
         return 'change_log';
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    
+    public static function getDb()
+    {
+        return Yii::$app->get($this->set_db);
+    }
+
     public function rules()
     {
         return [
@@ -29,6 +33,8 @@ class ModelChangeLog extends \yii\db\ActiveRecord
             [['parent_id', 'user_id', 'is_active', 'created', 'updated', 'createby', 'updateby'], 'integer'],
         ];
     }
+
+    
 
     public function behaviors()
     {
