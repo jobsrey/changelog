@@ -4,7 +4,7 @@ namespace jobsrey\changelog;
 
 use yii;
 use yii\base\Component;
-use app\models\ChangeLog as ModelChangeLog;
+use jobsrey\changelog\models\ChangeLog as ModelChangeLog;
 
 class ChangeLog extends Component
 {
