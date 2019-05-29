@@ -1,6 +1,6 @@
 <?php
 
-namespace jobsrey\changelog;
+namespace jobsrey\changelog\models;
 
 use Yii;
 use yii\behaviors\BlameableBehavior;
