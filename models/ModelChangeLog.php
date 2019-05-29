@@ -6,10 +6,14 @@ use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 
+
 class ModelChangeLog extends \yii\db\ActiveRecord
 {
 
-    public $set_db = 'db';
+    //dynamic db
+    //https://forum.yiiframework.com/t/will-this-work-changing-model-db-on-the-fly/84693/3
+
+    public static $connection;
 
     //STATUS
     // 1 => create
@@ -20,10 +24,19 @@ class ModelChangeLog extends \yii\db\ActiveRecord
         return 'change_log';
     }
 
-    
     public static function getDb()
     {
-        return Yii::$app->get($this->set_db);
+
+        // return Yii::$app->get($this->getConf());
+        return Yii::$app->get(self::$connection);
+    }
+
+    public  function setDb($connection)
+    {
+
+        self::$connection = $connection;
+
+        return $this;
     }
 
     public function rules()
@@ -34,7 +47,7 @@ class ModelChangeLog extends \yii\db\ActiveRecord
         ];
     }
 
-    
+
 
     public function behaviors()
     {
