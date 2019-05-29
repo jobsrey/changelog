@@ -12,7 +12,7 @@ class ChangeLog extends Component
 	//di gunakan di dalam fungsi afterSave ActiveRecord
 	public function saveLogUpdateByOne($attribute,$newData,$oldValue,$status = 2){
 		$attributesLabel						= $newData->attributeLabels();
-		$changeLogModel 						= new ModelChangeLog; //model change log
+		$changeLogModel 						= new ModelChangeLog(); //model change log
 		$changeLogModel->status 				= $status;
 		$changeLogModel->table_name 			= $newData->tableName();
 		$changeLogModel->model_name             = \yii\helpers\StringHelper::basename(get_class($newData));
@@ -28,6 +28,7 @@ class ChangeLog extends Component
 		$changeLogModel->oldvalue 				= $oldValue[$attribute];
 		$changeLogModel->user_id 				= Yii::$app->user->identity->id;
 		$changeLogModel->parent_id              = Yii::$app->user->identity->parent_id;
+		die('disini');
 		$changeLogModel->save(false);
 	}
 
@@ -35,7 +36,7 @@ class ChangeLog extends Component
 	//digunakan untuk informasi saja bukan keterangan update file tapi hanya pesan saja
 	public function saveLogMessage($model,$message,$status = 3){
 		$attributesLabel						= $model->attributeLabels();
-		$changeLogModel 						= new ModelChangeLog; //model change log
+		$changeLogModel 						= new ModelChangeLog(); //model change log
 		$changeLogModel->status 				= $status;
 		$changeLogModel->table_name 			= $model->tableName();
 		$changeLogModel->model_name             = \yii\helpers\StringHelper::basename(get_class($model));
