@@ -5,14 +5,12 @@ Change Log
 Installation
 ------------
 
-Usage
+The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
+
+Either run
 
 ```
-'components' => [
-        ...
-        'changelog' => [
-            'class' => 'jobsrey\changelog\ChangeLog',
-        ],
+php composer.phar require --prefer-dist jobsrey/yii2-changelog "*"
 ```
 
 or add
@@ -29,6 +27,12 @@ Usage
 
 Once the extension is installed, simply use it in your code by  :
 
+
 ```php
-<?= \jobsrey\changelog\AutoloadExample::widget(); ?>
+
+'components' => [
+        ...
+        'changelog' => [
+            'class' => 'jobsrey\changelog\ChangeLog',
+        ],
 ```
