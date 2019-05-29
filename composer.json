@@ -2,7 +2,7 @@
     "name": "jobsrey/yii2-changelog",
     "description": "Change Log ",
     "type": "yii2-extension",
-    "keywords": [""],
+    "keywords": ["changelog"],
     "license": "MIT",
     "authors": [
         {
