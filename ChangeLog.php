@@ -19,19 +19,22 @@ class ChangeLog extends Component
 		$changeLogModel->status 				= $status;
 		$changeLogModel->table_name 			= $newData->tableName();
 		$changeLogModel->model_name             = \yii\helpers\StringHelper::basename(get_class($newData));
-		$changeLogModel->alias_column_name 		= $attributesLabel[$attribute];
 		
-		//mencari field primary key
-		foreach($newData->primaryKey() as $key => $value){
-			$changeLogModel->id_record 				= $newData->{$value};
-		}
+		if(isset($attributesLabel[$attribute])){
+			$changeLogModel->alias_column_name 		= $attributesLabel[$attribute];
+			
+			//mencari field primary key
+			foreach($newData->primaryKey() as $key => $value){
+				$changeLogModel->id_record 				= $newData->{$value};
+			}
 
-		$changeLogModel->column_name 			= $attribute;
-		$changeLogModel->newvalue 				= $newData->{$attribute};
-		$changeLogModel->oldvalue 				= $oldValue[$attribute];
-		$changeLogModel->user_id 				= Yii::$app->user->identity->id;
-		$changeLogModel->parent_id              = Yii::$app->user->identity->parent_id;
-		$changeLogModel->save(false);
+			$changeLogModel->column_name 			= $attribute;
+			$changeLogModel->newvalue 				= $newData->{$attribute};
+			$changeLogModel->oldvalue 				= $oldValue[$attribute];
+			$changeLogModel->user_id 				= Yii::$app->user->identity->id;
+			$changeLogModel->parent_id              = Yii::$app->user->identity->parent_id;
+			$changeLogModel->save(false);
+		}
 	}
 
 
