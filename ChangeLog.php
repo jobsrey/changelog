@@ -12,7 +12,7 @@ class ChangeLog extends Component
 	public $db = 'db';
 
 	//di gunakan di dalam fungsi afterSave ActiveRecord
-	public function saveLogUpdateByOne($attribute,$newData,$oldValue,$status = 2){
+	public function saveLogUpdateByOne($attribute,$newData,$oldValue,$status = 2,$except = array()){
 		$attributesLabel						= $newData->attributeLabels();
 		$changeLogModel 						= new ModelChangeLog(); //model change log
 		$changeLogModel->setDb($this->db);
@@ -27,13 +27,21 @@ class ChangeLog extends Component
 			foreach($newData->primaryKey() as $key => $value){
 				$changeLogModel->id_record 				= $newData->{$value};
 			}
+			
+			$key = array_search($attribute,$except); 
+
+			if(is_numeric($key)){ //jika ditemukan maka di abaikan
+				return true;
+			} 
 
 			$changeLogModel->column_name 			= $attribute;
 			$changeLogModel->newvalue 				= $newData->{$attribute};
 			$changeLogModel->oldvalue 				= $oldValue[$attribute];
 			$changeLogModel->user_id 				= Yii::$app->user->identity->id;
 			$changeLogModel->parent_id              = Yii::$app->user->identity->parent_id;
-			$changeLogModel->save(false);
+			if($newData->{$attribute} != $oldValue[$attribute]){
+				$changeLogModel->save(false);
+			}
 		}
 	}
 
