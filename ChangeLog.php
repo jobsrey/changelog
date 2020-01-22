@@ -33,7 +33,9 @@ class ChangeLog extends Component
 			$changeLogModel->oldvalue 				= $oldValue[$attribute];
 			$changeLogModel->user_id 				= Yii::$app->user->identity->id;
 			$changeLogModel->parent_id              = Yii::$app->user->identity->parent_id;
-			$changeLogModel->save(false);
+			if($newData->{$attribute} != $oldValue[$attribute]){
+				$changeLogModel->save(false);
+			}
 		}
 	}
 
