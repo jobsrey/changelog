@@ -29,6 +29,7 @@ class m190529_033435_create_table_change_log extends Migration
             'alias_column_name' => $this->string(),
             'id_record' => $this->integer()->notNull(),
             'column_name' => $this->string(),
+            'jns_transaksi' => $this->string(),
         ], $tableOptions);
 
         $this->createIndex('parent_id', '{{%change_log}}', 'parent_id');
