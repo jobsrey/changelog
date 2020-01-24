@@ -44,6 +44,7 @@ class ModelChangeLog extends \yii\db\ActiveRecord
         return [
             [['table_name', 'model_name', 'messages'], 'string'],
             [['parent_id', 'user_id', 'is_active', 'created', 'updated', 'createby', 'updateby'], 'integer'],
+            [['jns_transaksi'],'string','max'=>'255'],
         ];
     }
 
@@ -80,6 +81,7 @@ class ModelChangeLog extends \yii\db\ActiveRecord
             'updated' => 'Updated',
             'createby' => 'Createby',
             'updateby' => 'Updateby',
+            'jns_transaksi' => 'Jenis Transaksi',
         ];
     }
 }
